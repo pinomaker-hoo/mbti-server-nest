@@ -13,5 +13,5 @@ export class User extends BaseTimeEntity {
   email: string;
 
   @Column()
-  providerIdx: string;
+  providerId: string;
 }
