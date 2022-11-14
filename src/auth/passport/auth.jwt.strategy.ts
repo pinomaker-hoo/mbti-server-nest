@@ -14,7 +14,7 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
     super({
       jwtFromRequest: ExtractJwt.fromExtractors([
         (request: any) => {
-          return request?.headers?.accesstoken;
+          return request?.cookies?.accessToken || request?.headers?.accessToken;
         },
       ]),
       secretOrKey: 'swyg3',

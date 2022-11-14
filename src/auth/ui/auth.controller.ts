@@ -28,7 +28,9 @@ export default class AuthController {
   async kakaoCallBack(@Req() req, @Res() res: Response) {
     const user = await this.authService.kakaoLogin(req.user);
     const token = await this.authService.gwtJwtWithIdx(user.idx);
-    const url = 'https://matebook.swygbro.com';
+    res.cookie('accessToken', token, {
+      expires: new Date(Date.now() + 86400e3),
+    });
     return res.redirect('http://localhost:3009');
   }
 }
