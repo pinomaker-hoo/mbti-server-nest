@@ -31,6 +31,6 @@ export default class AuthController {
     res.cookie('accessToken', token, {
       expires: new Date(Date.now() + 86400e3),
     });
-    return res.redirect('http://localhost:3009');
+    return res.redirect('http://localhost:3000/admin');
   }
 }
